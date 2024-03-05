@@ -21,14 +21,16 @@ export default function () {
 
 {topProduct.map((item) => (
     <Link to="your-destination-url-here">
-        <div className='h-screen w-full flex items-center justify-center'>
-            <div className="h-full w-11/12" style={{backgroundImage: `url(${item.img})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-                <h2>{item.h1}</h2>
-                <p>{item.con1}</p>
-                <p>{item.con2}</p>
+        <div className='h-screen  flex items-center justify-center'>
+            <div className="h-full w-11/12 " style={{backgroundImage: `url(${item.img})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+                <div className='text-center mt-24 '>
+                    <h2 className='text-3xl font-semibold mb-2 md:text-6xl'>{item.h1}</h2>
+                    <p className='text-lg mb-1 font-semibold' >{item.con1}</p>
+                    <p className='text-gray-400'>{item.con2}</p>
+                </div>
                 {/* Ensure the image is not hidden */}
                 {/* <img src={item.img} alt="" srcSet="" /> */}
-                <div className='flex justify-center space-x-4'>
+                <div className='flex justify-center space-x-4 text-blue-600 my-2'>
                     <a href="#" className='flex text-center align-middle justify-center items-center '>Learn more<IoIosArrowForward /></a>
                     <a href="#" className='flex text-center align-middle justify-center items-center '>Order now<IoIosArrowForward /></a>
                
