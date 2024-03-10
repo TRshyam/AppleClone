@@ -1,52 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
+import styles from 'react-awesome-slider/dist/custom-styles/cube-animation.css'; // Import the default styles
+import watch from '../assets/images/productd/watch.jpg';
 
-const Tvcard = () => {
-  const [isSlided, setIsSlided] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsSlided(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsSlided(false);
-  };
+const Slider = () => {
+  const images = [
+    { img: watch, con: "hello World" },
+    { img: watch, con: "hello World" },
+    { img: watch, con: "hello World" },
+    { img: watch, con: "hello World" },
+  ];
 
   return (
-        <div
-        className="relative w-64 h-96 overflow-hidden rounded-lg shadow-lg"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        >
-        <div
-            className={`absolute inset-0 bg-cover transition-transform duration-500 ${
-            isSlided ? 'translate-x-1/3' : ''
-            }`}
-            style={{
-            backgroundImage: 'url(https://example.com/card-background.jpg)',
-            }}
-        />
-        <div
-            className={`absolute inset-0 bg-cover transition-transform duration-500 ${
-            isSlided ? '-translate-x-1/3' : ''
-            }`}
-            style={{
-            backgroundImage: 'url(https://example.com/card-foreground.jpg)',
-            }}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-500">
-            <div
-            className={`absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-500 ${
-                isSlided ? 'opacity-100' : ''
-            }`}
-            >
-            <div className="text-white text-center">
-                <h2 className="text-2xl font-bold mb-2">Card Title</h2>
-                <p className="text-lg">Card Description</p>
-            </div>
-            </div>
+    <AwesomeSlider cssModule={styles}>
+      {images.map((item, index) => (
+        <div key={index}>
+          <img src={item.img} alt={`Slide ${index + 1}`} />
+          <div>
+            <h2>{item.con}</h2>
+          </div>
         </div>
-        </div>
+      ))}
+    </AwesomeSlider>
   );
 };
 
-export default Tvcard;
+export default Slider;
